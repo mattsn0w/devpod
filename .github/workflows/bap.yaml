@@ -18,5 +18,4 @@ jobs:
           context: .
           file: Dockerfile.ubuntu
           push: true
-          sbom: true
-          tag: ghcr.io/${{ github.repository }}:latest
+          tags: ghcr.io/${{ github.repository }}:latest
