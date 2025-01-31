@@ -1,0 +1,22 @@
+name: build and push container image
+
+on:
+  workflow_dispatch:
+
+jobs:
+  builder_job:
+    name: Build an image
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: get muh files. 
+        uses: actions/checkout@v4
+        
+      - name: Build and push muh files to image registry.
+        uses: docker/build-push-action@v6.13.0
+        with:
+          context: .
+          file: Dockerfile.ubuntu
+          push: true
+          sbom: true
+          tag: ghcr.io/${{ github.repository }}:latest
