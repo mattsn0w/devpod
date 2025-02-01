@@ -6,6 +6,7 @@ RUN apt update && \
     chmod 644 /tmp/code_amd64.deb && \
     apt-get install -y /tmp/code_amd64.deb
 
+EXPOSE 8000
 
 CMD ["code","serve-web","--host=0.0.0.0","--port=8000","--without-connection-token","--accept-server-license-terms"]
 
