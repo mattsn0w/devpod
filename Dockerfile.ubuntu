@@ -7,6 +7,6 @@ RUN apt update && \
     apt-get install -y /tmp/code_amd64.deb
 
 EXPOSE 8000
+EXPOSE 2222
 
-CMD ["code","serve-web","--host=0.0.0.0","--port=8000","--without-connection-token","--accept-server-license-terms"]
-
+USER ubuntu
