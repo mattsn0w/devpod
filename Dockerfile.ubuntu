@@ -3,7 +3,9 @@ FROM ubuntu:24.04
 RUN apt update && \
     apt install -y wget curl git git-lfs gpg openssl openssh-server openssh-client util-linux zutty ubuntu-mono && \
     wget -O /tmp/code_amd64.deb 'https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64' && \
+    wget -O /tmp/code_cli_alpine.tar.gz 'https://code.visualstudio.com/sha/download?build=stable&os=cli-alpine-x64' && \
     chmod 644 /tmp/code_amd64.deb && \
+    mkdir /code && cd /code && tar -zxvf /tmp/code_cli_alpine.tar.gz && \
     apt-get install -y /tmp/code_amd64.deb
 
 EXPOSE 8000
